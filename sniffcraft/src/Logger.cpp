@@ -571,7 +571,7 @@ void Logger::LogConsume()
             if (true)
             {
 #ifdef WITH_GUI
-                output << "\n" << RemoveParsingDetails(item.msg->Serialize());
+                output << "\n" << RemoveParsingDetails(item.msg->Serialize()).Dump(4);
 #else
                 output << "\n" << item.msg->Serialize().Dump(4);
 #endif
