@@ -545,19 +545,19 @@ void Logger::LogConsume()
             const std::set<int>& detailed_set = detailed_packets[{item.connection_state, SimpleOrigin(item.origin)}];
             const bool is_detailed = detailed_set.find(item.msg->GetId()) != detailed_set.end();
 
-            //output
-            //    << '['
-            //    << hours
-            //    << ':'
-            //    << std::setw(2) << std::setfill('0') << min
-            //    << ':'
-            //    << std::setw(2) << std::setfill('0') << sec
-            //    << ':'
-            //    << std::setw(3) << std::setfill('0') << millisec
-            //    << "] "
-            //    << ConnectionStateToString(item.connection_state) << ' '
-            //    << OriginToString(item.origin) << ' ';
-            //output << packet_name;
+            output
+                << '['
+                << hours
+                << ':'
+                << std::setw(2) << std::setfill('0') << min
+                << ':'
+                << std::setw(2) << std::setfill('0') << sec
+                << ':'
+                << std::setw(3) << std::setfill('0') << millisec
+                << "] "
+                << ConnectionStateToString(item.connection_state) << ' '
+                << OriginToString(item.origin) << ' ';
+            output << packet_name;
             if (log_raw_bytes)
             {
                 output << '\n';
